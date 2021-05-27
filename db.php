@@ -13,6 +13,9 @@ $db = "database_name";
 //FLUSH PRIVILEGES;
 //exit
 
+//ssh -L 13306:localhost:3306 user@ip
+
+
 $mysqli = new mysqli($host,$user,$pass,$db);
 // Check connection
  if ($mysqli -> connect_errno) {
