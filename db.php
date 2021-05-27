@@ -1,10 +1,18 @@
 <?php
 $host = "localhost";
-$user = "USERNAME";
-$pass = "PASSWORD";
-$db = "DBNAME";
+$user = "devUser";
+$pass = 'password';
+$db = "database_name";
 
 //mySQLi connection
+
+//sudo mysql
+// CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'password';
+//CREATE DATABASE testdb;
+//GRANT ALL PRIVILEGES ON database.* TO 'USERNAME'@'localhost';
+//FLUSH PRIVILEGES;
+//exit
+
 $mysqli = new mysqli($host,$user,$pass,$db);
 // Check connection
  if ($mysqli -> connect_errno) {
@@ -21,7 +29,7 @@ try {
     //echo "Connected successfully";
 }
 catch(PDOException $e){
-    echo "Connection failed: " . $e->getMessage();
+    //echo "Connection failed: " . $e->getMessage();
 }
 
 ?>
