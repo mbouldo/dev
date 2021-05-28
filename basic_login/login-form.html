@@ -1,0 +1,38 @@
+			
+<form id="login-form" method="post" action="process_login.php">
+  <div class="form-group">
+    <input class="form-control" type="email" name="email" placeholder="Email">
+    <i class="icon_mail_alt"></i>
+  </div>
+  <div class="col-lg-12">
+    <div class="form-group">
+      <p class="email-error form-error text-error hidden">Please enter in a valid email </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+    <i class="icon_lock_alt"></i>
+  </div>
+  <div class="clearfix add_bottom_15">
+    <div class="float-right"><a id="forgot" href="/forgot-password">Forgot Password?</a></div>
+  </div>
+  <input type="submit" onclick="initLogin()" class="btn_1 gradient full-width" value="Login Now!"/>
+  <div class="text-center mt-2">
+              <small>Don't have an acccount? <strong><a href="/join">Sign Up</a></strong></small>
+   </div>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+	var code ="<?php echo $_GET['code']?>";
+	if(code=="invalid_email"){
+		$(".email-error").removeClass('hidden').text('Please enter in a valid email!');
+	}
+	else if(code=="auth_failed"){
+		$(".email-error").removeClass('hidden').text('This email is either not registered or the password provided is incorrect.');
+	}
+	function initLogin(){
+		$("#login-form").submit();
+	}
+</script>
