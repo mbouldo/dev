@@ -1,0 +1,43 @@
+                            <script src="/admin_section/vendor/dropzone/dropzone.js"></script>
+                            <script>
+                                Dropzone.options.myDropzone = {  init: function() {
+                                    this.on("addedfile", file => {
+                                        console.log(file);
+                                        var fd = new FormData();
+                                        fd.append('file_upload', file);
+
+                                        $.ajax({
+                                            url:"/utilities/upload/upload-handler.php",
+                                            method:"POST",
+                                            data:fd,
+                                            contentType:false,
+                                            cache:false,
+                                            processData:false,
+                                            success:function(data)
+                                            {
+                                                data = JSON.parse(data);
+                                                if(data.message=='uploaded'){
+                                                    alert('good');
+                                                }
+                                                else if(data.message=='wrong_ext'){
+                                                    alert('incorrect file type');
+                                                }
+                                                else if(data.message=='too_large'){
+                                                    alert('this file is too large');
+                                                }
+                                                else if(data.message=='failed'){
+                                                    alert('this file could not upload');
+                                                }
+                                            }
+                                        })
+                                    });
+                                }
+                                };
+                            </script>
+
+            
+                            <form action="/utilities/upload.php" class="dropzone" id="my-dropzone">
+                                <div class="dz-message">
+                                    <h5 class="text-center mt-5">Drop files here or click to upload.</h5>
+                                </div>
+                            </form>
