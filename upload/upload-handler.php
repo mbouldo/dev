@@ -7,6 +7,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/utilities/functions.php';
 $target_dir = '/var/www/testurl001.xyz/public';
 $guid = getGUID();
 
+//echo exec('whoami'); 
+//chown user destination_dir
+//chmod 755 destination_dir
 
 
 $path = $_FILES['file_upload']['name'];
