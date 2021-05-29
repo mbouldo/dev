@@ -8,8 +8,8 @@ $target_dir = '/var/www/testurl001.xyz/public';
 $guid = getGUID();
 
 //echo exec('whoami'); 
-//chown user destination_dir
-//chmod 755 destination_dir
+//chown user_that_owns destination_directory
+//chmod 755 destination_directory
 
 
 $path = $_FILES['file_upload']['name'];
